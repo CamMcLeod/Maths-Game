@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -21,28 +22,24 @@ int main(int argc, const char * argv[]) {
             //ask question
             NSLog(@"%@", newQuestion.question);
             
-            // take user input for answer
-            fgets(inputChars, 255, stdin);
+            //handle input with custom class
+            NSString *trimmedString = [InputHandler handle];
             
-            // store string and trim as nsstring
-            NSString *inputString = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-            NSString *trimmedString = [inputString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
+            // tell user if they are correct or incorrect with their answer
             if ([trimmedString integerValue] == newQuestion.answer) {
                 NSLog(@"Right!");
             } else {
                 NSLog(@"Wrong! The right answer is: %ld", newQuestion.answer);
             }
             
+            
+            //ask if user wants to terminate game
             NSLog(@"Type quit to exit:");
             
-            // take user input for answer
-            fgets(inputChars, 255, stdin);
+            //handle input with custom class
+            NSString *trimmedQuitString = [InputHandler handle];
             
-            // store string and trim as nsstring
-            NSString *quitString = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-            NSString *trimmedQuitString = [quitString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
+            // if they typed in quit, exit the game
             if([trimmedQuitString compare: @"quit"] == NSOrderedSame) {
                 playOn = NO;
             }
