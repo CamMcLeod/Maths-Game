@@ -11,11 +11,10 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
-        while(TRUE) {
+        BOOL playOn = YES;
+        while(playOn) {
             //define char for user input
             char inputChars[255];
-            
             // initialize question which generates numbers
             AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
             
@@ -33,6 +32,19 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"Right!");
             } else {
                 NSLog(@"Wrong! The right answer is: %ld", newQuestion.answer);
+            }
+            
+            NSLog(@"Type quit to exit:");
+            
+            // take user input for answer
+            fgets(inputChars, 255, stdin);
+            
+            // store string and trim as nsstring
+            NSString *quitString = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
+            NSString *trimmedQuitString = [quitString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            if([trimmedQuitString compare: @"quit"] == NSOrderedSame) {
+                playOn = NO;
             }
             
         }
