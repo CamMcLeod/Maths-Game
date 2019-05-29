@@ -40,4 +40,9 @@
     return _answer;
 }
 
+- (NSTimeInterval) answerTime {
+    // return time interval between start and end time
+    return [_endTime timeIntervalSinceDate: _startTime];
+}
+
 @end
