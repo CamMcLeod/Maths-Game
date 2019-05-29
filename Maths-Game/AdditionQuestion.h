@@ -11,9 +11,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AdditionQuestion : NSObject
+{
+    NSInteger _answer;
+}
 
 @property NSString *question;
-@property NSInteger answer;
+@property NSDate *startTime;
+@property NSDate *endTime;
+
+- (NSInteger) answer;
+- (void) setAnswer: (NSInteger) answer;
 
 @end
 

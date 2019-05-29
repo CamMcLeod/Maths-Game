@@ -12,6 +12,9 @@
 
 - (instancetype)init {
     if (self = [super init]) {
+        // set start time to now
+        _startTime = [NSDate date];
+        
         // generate random numbers to add upon initialization
         int rand1 = 10 + arc4random_uniform(90);
         int rand2 = 10 + arc4random_uniform(90);
@@ -24,6 +27,17 @@
         _answer = (NSInteger) sum;
     }
     return self;
+}
+
+- (void) setAnswer:(NSInteger)answer {
+
+    _answer = answer;
+}
+
+// overriding getter to return end date when answer is got
+- (NSInteger)answer {
+    _endTime = [NSDate date];
+    return _answer;
 }
 
 @end
