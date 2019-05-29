@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
         while(playOn) {
 
             // initialize question which generates numbers, and add it to questions array
-            AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
+            Question *newQuestion = [[Question alloc] init];
             [myManager.questions addObject: newQuestion];
             
             //ask question
