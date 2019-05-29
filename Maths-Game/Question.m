@@ -23,8 +23,8 @@
         // _question = [[NSString alloc] initWithFormat:@"%d + %d = ?", rand1 , rand2];
         
         // add numbers to solve correct answer
-        int sum = _leftValue + _rightValue;
-        _answer = (NSInteger) sum;
+        //int sum = _leftValue + _rightValue;
+        //_answer = (NSInteger) sum;
     }
     return self;
 }
