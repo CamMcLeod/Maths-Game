@@ -6,9 +6,9 @@
 //  Copyright © 2019 Cameron Mcleod. All rights reserved.
 //
 
-#import "DivisionQuestion.h"
+#import "RemainderQuestion.h"
 
-@implementation DivisionQuestion
+@implementation RemainderQuestion
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -20,10 +20,10 @@
 - (void)generateQuestion {
     
     // set super.answer here
-    super.answer = super.leftValue / super.rightValue;
+    super.answer = super.leftValue % super.rightValue;
     
     // set super.question here
-    super.question = [[NSString alloc] initWithFormat:@"%ld - %ld = ?", super.leftValue , super.rightValue];
+    super.question = [[NSString alloc] initWithFormat:@"%ld %% %ld = ?", super.leftValue , super.rightValue];
     
 }
 

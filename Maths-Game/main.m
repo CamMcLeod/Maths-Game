@@ -11,6 +11,7 @@
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
+#import "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -18,11 +19,12 @@ int main(int argc, const char * argv[]) {
         BOOL playOn = YES;
         ScoreKeeper *myScore = [[ScoreKeeper alloc] init];
         QuestionManager *myManager = [[QuestionManager alloc] init];
+        QuestionFactory *myFactory = [[QuestionFactory alloc] init];
         
         while(playOn) {
 
-            // initialize question which generates numbers, and add it to questions array
-            Question *newQuestion = [[Question alloc] init];
+            // initialize question which generates numbers and operation, and add it to questions array,
+            Question *newQuestion = [myFactory generateRandomQuestion];
             [myManager.questions addObject: newQuestion];
             
             //ask question

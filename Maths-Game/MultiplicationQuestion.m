@@ -23,7 +23,7 @@
     super.answer = super.leftValue * super.rightValue;
     
     // set super.question here
-    super.question = [[NSString alloc] initWithFormat:@"%ld - %ld = ?", super.leftValue , super.rightValue];
+    super.question = [[NSString alloc] initWithFormat:@"%ld * %ld = ?", super.leftValue , super.rightValue];
     
 }
 
