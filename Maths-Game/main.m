@@ -10,17 +10,20 @@
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // initialize game to continue until quit, and score to accumulate
+        // initialize game to continue until quit, score to accumulate, and manager to track questions
         BOOL playOn = YES;
         ScoreKeeper *myScore = [[ScoreKeeper alloc] init];
+        QuestionManager *myManager = [[QuestionManager alloc] init];
         
         while(playOn) {
 
-            // initialize question which generates numbers
+            // initialize question which generates numbers, and add it to questions array
             AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
+            [myManager.questions addObject: newQuestion];
             
             //ask question
             NSLog(@"%@", newQuestion.question);
