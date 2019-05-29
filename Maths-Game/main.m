@@ -42,8 +42,9 @@ int main(int argc, const char * argv[]) {
                 
             }
             
-            //print current score
+            //print current score and game times
             [myScore score];
+            NSLog(@"%@", [myManager timeOutput]);
             
             //ask if user wants to terminate game
             NSLog(@"Type quit to exit:");

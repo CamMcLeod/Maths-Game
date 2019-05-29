@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSMutableArray *questions;
 
+-(NSString *) timeOutput;
+
 @end
 
 NS_ASSUME_NONNULL_END
